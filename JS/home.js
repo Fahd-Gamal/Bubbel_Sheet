@@ -80,3 +80,23 @@ function register()
 {
     window.location.href = "login.html";
 }
+let deferredPrompt;
+
+const popup = document.getElementById("install-popup");
+const installBtn = document.getElementById("installBtn");
+const closeBtn = document.getElementById("closeBtn");
+
+window.addEventListener("beforeinstallprompt", (e) => {
+
+    e.preventDefault();
+
+    deferredPrompt = e;
+
+    const isInstalled =
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.navigator.standalone === true;
+
+    if (!isInstalled) {
+        popup.style.display = "flex";
+    }
+});
