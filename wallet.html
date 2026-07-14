@@ -17,132 +17,132 @@
 </head>
 
 <body>
-<!-- Navbar -->
-<nav class="glass-navbar">
-    <div class="navbar-container" style="direction: ltr;">
-        <!-- Logo -->
-        <a href="student_dashboard.html" class="navbar-brand">
-            <div class="brand-logo">
-                <img src="IMG/logo.png" alt="Logo" class="logo-text-wrapper">
-            </div>
-            <span class="logo-svg">Bubble Sheet</span>
-        </a>
-        <!-- Right Side -->
-        <!-- Theme-->
-        <label class="theme-switch" style="direction: ltr;">
-            <input type="checkbox" id="input">
-            <span class="toggle-track">
-                <span class="toggle-thumb"></span>
-            </span>
-        </label>
-        <div class="nav-right" style="direction: rtl;">
-            <!-- Desktop Student Profile -->
-            <div class="student-dropdown">
-                <button class="student-profile" onclick="toggleMenu()">
-                    <div class="student-avatar-small">
-                        أ
-                    </div>
-                    <span>
-                        أحمد محمد
-                    </span>
-                    <i class="bi bi-chevron-down"></i>
-                </button>
-            </div>
-            <!-- Notifications -->
-            <div class="notification-wrapper">
-                <div class="notification-box" onclick="toggleNotifications(event)">
-                    <i class="bi bi-bell-fill"></i>
-                    <span>3</span>
+    <!-- Navbar -->
+    <nav class="glass-navbar">
+        <div class="navbar-container" style="direction: ltr;">
+            <!-- Logo -->
+            <a href="student_dashbord.html" class="navbar-brand">
+                <div class="brand-logo">
+                    <img src="IMG/logo.png" alt="Logo" class="logo-text-wrapper">
                 </div>
-                <div class="notification-dropdown" id="notificationDropdown">
-                    <div class="notification-title">
-                        الإشعارات
-                    </div>
-                    <a href="#" class="notification-item">
-                        <i class="bi bi-check-circle-fill"></i>
-                        تم تصحيح اختبار الرياضيات
-                    </a>
-                    <a href="#" class="notification-item">
-                        <i class="bi bi-award-fill"></i>
-                        حصلت على شارة جديدة
-                    </a>
-                    <a href="#" class="notification-item">
-                        <i class="bi bi-journal-check"></i>
-                        تدريب جديد متاح
-                    </a>
-                </div>
-            </div>
-            <a href="wallet.html" style="text-decoration: none;">
-                <div class="student-wallet desktop-wallet">
-                    <i class="bi bi-wallet2"></i>
-
-                    <div class="wallet-info">
-                        <span class="wallet-label">الرصيد</span>
-                        <span class="wallet-balance">
-                            <span id="studentBalance">250</span> ج.م
+                <span class="logo-svg">Bubble Sheet</span>
+            </a>
+            <!-- Right Side -->
+            <!-- Theme-->
+            <label class="theme-switch" style="direction: ltr;">
+                <input type="checkbox" id="input">
+                <span class="toggle-track">
+                    <span class="toggle-thumb"></span>
+                </span>
+            </label>
+            <div class="nav-right" style="direction: rtl;">
+                <!-- Desktop Student Profile -->
+                <div class="student-dropdown">
+                    <button class="student-profile" onclick="toggleMenu()">
+                        <div class="student-avatar-small">
+                            أ
+                        </div>
+                        <span>
+                            أحمد محمد
                         </span>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                </div>
+                <!-- Notifications -->
+                <div class="notification-wrapper">
+                    <div class="notification-box" onclick="toggleNotifications(event)">
+                        <i class="bi bi-bell-fill"></i>
+                        <span>3</span>
+                    </div>
+                    <div class="notification-dropdown" id="notificationDropdown">
+                        <div class="notification-title">
+                            الإشعارات
+                        </div>
+                        <a href="#" class="notification-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            تم تصحيح اختبار الرياضيات
+                        </a>
+                        <a href="#" class="notification-item">
+                            <i class="bi bi-award-fill"></i>
+                            حصلت على شارة جديدة
+                        </a>
+                        <a href="#" class="notification-item">
+                            <i class="bi bi-journal-check"></i>
+                            تدريب جديد متاح
+                        </a>
+                    </div>
+                </div>
+                <a href="wallet.html" style="text-decoration: none;">
+                    <div class="student-wallet desktop-wallet">
+                        <i class="bi bi-wallet2"></i>
+
+                        <div class="wallet-info">
+                            <span class="wallet-label">الرصيد</span>
+                            <span class="wallet-balance">
+                                <span id="studentBalance">250</span> ج.م
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Hamburger -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+    </nav>
+    <!-- Overlay -->
+    <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="student-menu-head">
+            <div class="student-avatar">
+                أ
+            </div>
+            <div>
+                <h4>أحمد محمد</h4>
+                <p>طالب</p>
+            </div>
+        </div>
+        <div class="mobile-menu-items">
+            <a href="student_dashbord.html">
+                <i class="bi bi-grid-fill"></i>
+                لوحة التحكم
+            </a>
+            <a href="#profile">
+                <i class="bi bi-person-fill"></i>
+                بياناتي
+            </a>
+            <a href="wallet.html" style="text-decoration: none;">
+                <div class="mobile-wallet">
+                    <i class="bi bi-wallet2"></i>
+                    <div>
+                        <div class="wallet-label">رصيدك الحالي</div>
+                        <div class="wallet-balance">
+                            <span id="studentBalanceMobile">250</span> ج.م
+                        </div>
                     </div>
                 </div>
             </a>
-        </div>
-        <!-- Hamburger -->
-        <div class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-
-</nav>
-<!-- Overlay -->
-<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-    <div class="student-menu-head">
-        <div class="student-avatar">
-            أ
-        </div>
-        <div>
-            <h4>أحمد محمد</h4>
-            <p>طالب</p>
-        </div>
-    </div>
-    <div class="mobile-menu-items">
-        <a href="student_dashboard.html">
-            <i class="bi bi-grid-fill"></i>
-            لوحة التحكم
-        </a>
-        <a href="#profile">
-            <i class="bi bi-person-fill"></i>
-            بياناتي
-        </a>
-        <a href="wallet.html" style="text-decoration: none;">
-            <div class="mobile-wallet">
-                <i class="bi bi-wallet2"></i>
-                <div>
-                    <div class="wallet-label">رصيدك الحالي</div>
-                    <div class="wallet-balance">
-                        <span id="studentBalanceMobile">250</span> ج.م
-                    </div>
-                </div>
+            <div class="menu-title">
+                المراحل الدراسية
             </div>
-        </a>
-        <div class="menu-title">
-            المراحل الدراسية
-        </div>
-        <a href="#">
-            <i class="bi bi-book-fill"></i>
-            المرحلة الابتدائية
-        </a>
-        <a href="#">
-            <i class="bi bi-mortarboard-fill"></i>
-            المرحلة الإعدادية
-        </a>
-        <a href="#">
-            <i class="bi bi-award-fill"></i>
-            المرحلة الثانوية
-        </a>
-        <!-- <a href="#">
+            <a href="#">
+                <i class="bi bi-book-fill"></i>
+                المرحلة الابتدائية
+            </a>
+            <a href="#">
+                <i class="bi bi-mortarboard-fill"></i>
+                المرحلة الإعدادية
+            </a>
+            <a href="#">
+                <i class="bi bi-award-fill"></i>
+                المرحلة الثانوية
+            </a>
+            <!-- <a href="#">
             <i class="bi bi-journal-check"></i>
             التدريبات
         </a>
@@ -158,13 +158,13 @@
             <i class="bi bi-gear-fill"></i>
             الإعدادات
         </a> -->
-        <a href="home.html" class="logout">
-            <i class="bi bi-box-arrow-right"></i>
-            تسجيل الخروج
-        </a>
+            <a href="home.html" class="logout">
+                <i class="bi bi-box-arrow-right"></i>
+                تسجيل الخروج
+            </a>
+        </div>
     </div>
-</div>
-<!-- finish nav -->
+    <!-- finish nav -->
     <!-- =====================================================
         PAGE ROOT
     ====================================================== -->
@@ -215,7 +215,7 @@
                                     <i class="bi bi-arrow-down-circle"></i>
                                 </div>
                                 <div class="quick-stat-info">
-                                    <div class="quick-stat-val">+350</div>
+                                    <div class="quick-stat-val" id="totalChargedStat">+350</div>
                                     <div class="quick-stat-lbl">إجمالي الشحن (ج.م)</div>
                                 </div>
                             </div>
@@ -237,7 +237,7 @@
                                     <i class="bi bi-arrow-up-circle"></i>
                                 </div>
                                 <div class="quick-stat-info">
-                                    <div class="quick-stat-val">-100</div>
+                                    <div class="quick-stat-val" id="totalSpentStat">-100</div>
                                     <div class="quick-stat-lbl">إجمالي الإنفاق (ج.م)</div>
                                 </div>
                             </div>
@@ -451,30 +451,30 @@
     </div><!-- /page-root -->
 
     <footer class="main-footer">
-    
+
         <div class="footer-logo">
             <span>Bubble</span> Sheet
         </div>
-    
+
         <div class="footer-subtitle">
             منصة ذكية لإدارة وتصحيح الاختبارات
         </div>
-    
+
         <div class="footer-description">
             💙 تساعد منصة <strong>Bubble Sheet</strong> المدارس والمعلمين والمراكز التعليمية
             على إنشاء الاختبارات وتصحيحها وتحليل النتائج بدقة وسرعة.
             تم تصميم المنصة لتوفير تجربة حديثة تسهّل إدارة الامتحانات
             ومتابعة الأداء وتحليل النتائج بشكل احترافي.
         </div>
-    
+
         <div class="footer-badge">
             Smart • Fast • Accurate
         </div>
-    
+
         <br>
-    
+
         <div class="social-glass">
-    
+
             <a href="https://www.facebook.com/profile.php?id=61590523994765" class="facebook">
                 <i class="bi bi-facebook"></i>
             </a>
