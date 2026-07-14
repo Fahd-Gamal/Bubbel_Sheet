@@ -80,11 +80,22 @@ function register()
 {
     window.location.href = "login.html";
 }
-let deferredPrompt;
+/* =============================================
+5. PWA INSTALL POPUP
+============================================= */
+
+let deferredPrompt = null;
 
 const popup = document.getElementById("install-popup");
 const installBtn = document.getElementById("installBtn");
 const closeBtn = document.getElementById("closeBtn");
+
+const isInstalled = () => {
+    return (
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.navigator.standalone === true
+    );
+};
 
 window.addEventListener("beforeinstallprompt", (e) => {
 
@@ -92,11 +103,51 @@ window.addEventListener("beforeinstallprompt", (e) => {
 
     deferredPrompt = e;
 
-    const isInstalled =
-        window.matchMedia("(display-mode: standalone)").matches ||
-        window.navigator.standalone === true;
+    const popupClosed = localStorage.getItem("installPopupClosed");
 
-    if (!isInstalled) {
-        popup.style.display = "flex";
+    if (!isInstalled() && !popupClosed) {
+
+        setTimeout(() => {
+            popup.style.display = "flex";
+        }, 2500);
     }
+});
+
+installBtn.addEventListener("click", async () => {
+
+    if (!deferredPrompt) return;
+
+    deferredPrompt.prompt();
+
+    const { outcome } = await deferredPrompt.userChoice;
+
+    if (outcome === "accepted") {
+
+        popup.style.display = "none";
+
+    } else {
+
+        localStorage.setItem("installPopupClosed", "true");
+        popup.style.display = "none";
+    }
+
+    deferredPrompt = null;
+});
+
+closeBtn.addEventListener("click", () => {
+
+    popup.style.display = "none";
+
+    localStorage.setItem("installPopupClosed", "true");
+});
+
+window.addEventListener("appinstalled", () => {
+
+    popup.style.display = "none";
+
+    localStorage.removeItem("installPopupClosed");
+
+    deferredPrompt = null;
+
+    console.log("Bubble Sheet installed successfully");
 });
