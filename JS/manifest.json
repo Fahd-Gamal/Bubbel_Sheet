@@ -8,13 +8,13 @@
     "orientation": "portrait",
     "icons": [
         {
-            "src": "appIcon.png",
+            "src": "logo.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "maskable"
         },
         {
-            "src": "appIcon.png",
+            "src": "logo.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any"
