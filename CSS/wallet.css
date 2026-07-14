@@ -5,6 +5,61 @@
    ===================================================== */
 
 /* =====================================================
+   TOKEN BRIDGE
+   This file leans on the site's shared design tokens (brand colors,
+   gradient, radius, easing, glass surface, text colors). It previously
+   assumed nav.css/student_dashbord.css would supply them — but wallet.html
+   never loads student_dashbord.css, and nav.css isn't guaranteed to define
+   them either, so the whole page was losing its color scheme (gradients,
+   accent colors, radii all falling back to nothing).
+   Every token is now defined here directly (using var(--x, fallback) so
+   it still respects nav.css if it happens to define a matching name),
+   making this stylesheet fully self-sufficient — the wallet page will
+   always render with the correct brand look regardless of what else is
+   loaded.
+   ===================================================== */
+:root {
+    /* Brand palette — matches student_dashbord.css.
+       Plain values on purpose: a variable can't fall back to itself
+       (--c: var(--c, ...) is invalid CSS). If nav.css also sets these
+       on :root, it loads after this file, so it simply wins by normal
+       cascade order — no var() trick needed. */
+    --c: #00E2E0;
+    --b: #00A9F2;
+    --i: #172D9D;
+    --p: #787CFE;
+    --t: #48BED9;
+
+    --gm: linear-gradient(135deg, var(--i), var(--p), var(--b));
+    --ga: linear-gradient(120deg, var(--c), var(--b));
+
+    --radius: 24px;
+    --ease: cubic-bezier(.22, 1, .36, 1);
+
+    --glass-bg: rgba(255, 255, 255, .68);
+    --glass-border: rgba(120, 124, 254, .2);
+    --glass-shadow: 0 10px 35px rgba(23, 45, 157, .12), inset 0 1px 0 rgba(255, 255, 255, .8);
+    --glass-hover: 0 25px 60px rgba(23, 45, 157, .18);
+
+    --text-dark: #0f1c5c;
+    --text-muted: #6878a8;
+    --text-body: #6878a8;
+
+    --radius-md: 16px;
+}
+
+body.dark {
+    --glass-bg: rgba(20, 28, 45, .55);
+    --glass-border: rgba(255, 255, 255, .08);
+    --glass-shadow: 0 8px 40px rgba(0, 0, 0, .45);
+    --glass-hover: 0 20px 55px rgba(0, 0, 0, .55);
+
+    --text-dark: #ffffff;
+    --text-muted: #b7bfd0;
+    --text-body: #cbd5e0;
+}
+
+/* =====================================================
    GLASS CARDS
    ===================================================== */
 .gc {
